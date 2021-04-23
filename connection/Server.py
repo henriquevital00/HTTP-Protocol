@@ -1,5 +1,5 @@
 from socket import *
-from connection.Gateway import HOST, PORT
+from .Gateway import HOST, PORT
 from resources.HttpResponses.HttpBuilder import HttpBuilder
 from utils.functions import isBinaryData
 

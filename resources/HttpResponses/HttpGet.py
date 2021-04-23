@@ -12,20 +12,19 @@ class HTTP_Get(Response):
 
     def requestedDataType(self):
 
-        referencedFile = self.url.split("/")[-1]
+        splitPath = self.url.split('/')
+        lastPathLink = splitPath[-1]
+
+        referencedFile = lastPathLink if self.url != '/' else '/'
         fileExtension = referencedFile.split(".")
-        isStaticFileRequested = len(fileExtension) > 1
+
+        isStaticFileRequested = len(fileExtension) > 1 or fileExtension[-1] == "/"
 
         if not isStaticFileRequested:
             self.content_type = "application/json"
         else:
 
-            if fileExtension[-1] in page_script_extensions:
-                self.content_type = 'text/' + fileExtension[-1]
-            else:
-                self.content_type = 'image/' + fileExtension[-1]
-
-            if self.url in ["/", ""]:
+            if self.url == "/":
                 self.url = "/index.html"
 
             self.url = "static" + self.url
@@ -38,8 +37,10 @@ class HTTP_Get(Response):
                     file_content = content.read()
 
                     if fileExtension[-1] in page_script_extensions:
+                        self.content_type = 'text/' + "html" if fileExtension[-1] == "/" else fileExtension[-1]
                         self.data = self.ResponseHandler(file_content,self.content_type)
                     else:
+                        self.content_type = 'image/' + fileExtension[-1]
                         imgSize = os.stat(self.url).st_size
                         self.data = self.BinaryResponseHandler(file_content, imgSize)
 
@@ -55,6 +56,6 @@ class HTTP_Get(Response):
         http_image_headers = "HTTP/1.1 200 OK\r\n"
         http_image_headers += "Content-Type: {}\r\n".format(self.content_type)
         http_image_headers += "Content-Length: {}\r\n".format(size)
-        http_image_headers +=  "Accept-Ranges: bytes\r\n\r\n"
+        http_image_headers += "Accept-Ranges: bytes\r\n\r\n"
 
         return [http_image_headers, data]
