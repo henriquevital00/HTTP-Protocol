@@ -1,0 +1,84 @@
+:root {
+  --header-height: 10%;
+  --aside-width: 15%;
+  --footer-height: 8%;
+}
+
+
+.main{
+  display: grid;
+  grid-template-areas: 
+     'brand header'
+     'navbar content';
+  grid-template-columns: var(--aside-width) 1fr;
+  grid-template-rows: 
+      var(--header-height)
+      1fr;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.sidenav_items{
+  width: 100%;
+}
+
+
+.brand{
+  grid-area: brand;
+  background-color: #1e2123;
+}
+
+.header{
+  grid-area: header;
+  background-color: #272a2d;
+}
+
+.brand, .header{
+  padding: 1em;
+}
+
+h5{
+  padding: 0;
+  margin: 0;
+}
+
+.side_navbar{
+  grid-area: navbar;
+}
+
+.content{
+  grid-area: content;
+
+}
+
+.publication-card{
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 600px){
+
+  .main{
+    display: grid;
+    grid-template-areas: 
+       'brand'
+       'navbar'
+       'header'
+       'content';
+    
+    grid-template-columns: 1fr;        
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .side_navbar{
+    height: auto;
+  }
+
+
+
+}

@@ -30,9 +30,16 @@ class HTTP_Get(Response):
             self.url = "static" + self.url
 
             try:
-                openMethod = "rb" if fileExtension[-1] not in page_script_extensions else "r"
 
-                with open(self.url, openMethod) as content:
+                requestedFileOpen = None
+
+                if  fileExtension[-1] not in page_script_extensions :
+                    requestedFileOpen = open(self.url, "rb")
+                else:
+                    requestedFileOpen = open(self.url, "r", encoding="utf-8")
+
+
+                with requestedFileOpen as content:
 
                     file_content = content.read()
 
