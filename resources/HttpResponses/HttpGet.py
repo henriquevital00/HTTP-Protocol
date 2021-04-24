@@ -37,10 +37,19 @@ class HTTP_Get(Response):
                     file_content = content.read()
 
                     if fileExtension[-1] in page_script_extensions:
-                        self.content_type = 'text/' + "html" if fileExtension[-1] == "/" else fileExtension[-1]
+                        self.content_type = 'text/'
+
+                        if fileExtension[-1] == "/":
+                            self.content_type += "html"
+                        elif fileExtension[-1] == "js":
+                            self.content_type += "javascript"
+                        else:
+                            self.content_type += fileExtension[-1]
+
                         self.data = self.ResponseHandler(file_content,self.content_type)
                     else:
-                        self.content_type = 'image/' + fileExtension[-1]
+                        self.content_type = 'image/'
+                        self.content_type += fileExtension[-1] if fileExtension[-1] != "ico" else "x-icon"
                         imgSize = os.stat(self.url).st_size
                         self.data = self.BinaryResponseHandler(file_content, imgSize)
 

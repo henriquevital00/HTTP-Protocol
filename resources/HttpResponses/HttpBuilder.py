@@ -7,7 +7,7 @@ class HttpBuilder:
         self.method = self.received_data.split(' ')[0]
         self.url = self.received_data.split(' ')[1]
 
-    def getReponse(self):
+    def result(self):
         return ResponseFactory.InstanceResponse(self.method, self.url,
                                                 self.received_data)
 
