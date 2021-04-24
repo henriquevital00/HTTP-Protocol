@@ -21,7 +21,7 @@ class Server:
                 print(data.decode()) # just for output test, will be removed later
 
                 builder = HttpBuilder(data.decode())
-                result_data = builder.getReponse().data
+                result_data = builder.result().data
 
                 print('Result') # just for output test, will be removed later
 
