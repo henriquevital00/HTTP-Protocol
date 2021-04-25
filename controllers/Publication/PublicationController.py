@@ -6,8 +6,15 @@ class PublicationController:
         self.file_name = 'controllers/Publication/publications.json'
 
 
-    def create(self, data):
-        pass
+    def create(self, sent_data):
+        with open(self.file_name, "r+") as file:
+            data = json.load(file)
+            sent_data = json.loads(sent_data)
+            sent_data["id"] = data[-1]["id"] + 1
+            data.append(sent_data)
+            file.seek(0)
+            json.dump(data, file, indent=4)
+            return json.dumps(data)
 
     def findById(self, id):
         try:
@@ -36,23 +43,5 @@ class PublicationController:
             print("Can not remove postagem")
 
 
-    def searchData(self, Id: str) -> None:
-        try:
-            with open(self.file_name, 'r') as json_file:
-                data = json.load(json_file)
-                return {'text': data[Id]['text'], 'image': data[Id]['image']}
-        except:
-            print('Error searching in json file')
 
 
-    def appendData(self, Id: str, text: str, image: str) -> None:
-        file_data = {}
-        try:
-            with open(self.file_name, 'r') as json_file:
-                file_data = json.load(json_file)
-        except IOError:
-            print("File not accessible")
-        finally:
-            with open(self.file_name, 'w') as json_file:
-                file_data[Id] = {'text': text, 'image': image}
-                json.dump(file_data, json_file)
