@@ -35,7 +35,7 @@ class HTTP_Get(Response):
 
 
             if isId:
-                self.data = self.ResponseHandler(endpoints["GET"][self.url](id), self.content_type)
+                self.data = self.ResponseHandler(endpoints["GET"]["/".join(splitPath[0:-1])](id), self.content_type)
             else:
                 self.data = self.ResponseHandler(endpoints["GET"][self.url](), self.content_type)
 

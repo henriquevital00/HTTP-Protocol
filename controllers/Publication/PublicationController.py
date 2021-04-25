@@ -10,9 +10,14 @@ class PublicationController:
         pass
 
     def findById(self, id):
-        with open(self.file_name, 'r') as json_file:
-            data = json.load(json_file)
-            return data[str(id)][2:-2]
+        try:
+            with open(self.file_name, 'r') as json_file:
+                data = json.load(json_file)
+                for publication in data:
+                    if publication["id"] == id:
+                        return publication
+        except:
+            print('Error searching in json file')
 
     def findAll(self):
         with open(self.file_name, 'r') as json_file:

@@ -10,7 +10,7 @@ publicationsEndpoints = {
     },
 
     "GET": {
-        "/publications/": lambda id : (
+        "/publications": lambda id : (
             PublicationController().findById(id)
         ),
         "/publications/all": lambda : {
