@@ -2,6 +2,7 @@ import os
 from resources.HttpResponses.HttpResponse import Response
 from resources.HttpExceptions.NotFoundException import NotFoundException
 from utils.StaticFilesConstants import *
+from utils.ApplicationEndpoints import endpoints
 
 class HTTP_Get(Response):
 
@@ -22,8 +23,23 @@ class HTTP_Get(Response):
 
         if not isStaticFileRequested:
             self.content_type = "application/json"
-        else:
 
+            isId = False
+            id = 0
+
+
+            try:
+                id = int(lastPathLink)
+                isId = True
+            except Exception as ex: pass
+
+
+            if isId:
+                self.data = self.ResponseHandler(endpoints["GET"][self.url](id), self.content_type)
+            else:
+                self.data = self.ResponseHandler(endpoints["GET"][self.url](), self.content_type)
+
+        else:
             if self.url == "/":
                 self.url = "/index.html"
 

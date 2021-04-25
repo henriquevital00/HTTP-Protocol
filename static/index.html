@@ -6,10 +6,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css">
 
-    
     <!-- Animate.css -->
     <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" type="text/css">
 
@@ -74,7 +75,7 @@
               </div>
 
               <div class="modal-body">
-                  <form class="needs-validation" novalidate>
+                  <form id="needs-validation" novalidate>
 
                     <div class="form-row">
         
@@ -89,7 +90,9 @@
                             Por favor, escolha um nome de usuário
                           </div>
                         </div>
+
                       </div>
+
         
                     </div>
                     
@@ -113,6 +116,7 @@
                     </div>
         
                   </form>
+
               </div>
 
               <div class="modal-footer">
@@ -137,11 +141,14 @@
 
     <script>
 
-      
+
       $(".navbar-toggler").click(() => {
         $("#side_navbar").toggleClass("d-none");
       })
+
     </script>
   </body>
   
 </html>
+
+

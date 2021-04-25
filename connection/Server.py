@@ -15,7 +15,7 @@ class Server:
 
             while True:
                 conn, addr = sock.accept()
-                data = conn.recv(20000)
+                data = conn.recv(4096)
 
                 # Browser request
                 print(data.decode()) # just for output test, will be removed later
