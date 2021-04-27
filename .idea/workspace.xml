@@ -6,10 +6,13 @@
       <change beforePath="$PROJECT_DIR$/controllers/Publication/Endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Publication/Endpoints.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/Publication/PublicationController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Publication/PublicationController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/Publication/publications.json" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Publication/publications.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/HttpResponses/HttpResponse.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/HttpResponses/HttpResponse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/HttpResponses/HttpDelete.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/HttpResponses/HttpDelete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/HttpResponses/HttpGet.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/HttpResponses/HttpGet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/node_modules/bootstrap/dist/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/node_modules/bootstrap/dist/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/fetch_publications.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/scripts/form_handler.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/form_handler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/StaticFilesConstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/StaticFilesConstants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/ApplicationEndpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ApplicationEndpoints.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +25,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/HttpResponses/HttpGet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="757">
-              <caret line="67" column="61" lean-forward="true" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
+            <state relative-caret-position="136">
+              <caret line="11" selection-start-line="11" selection-end-line="13" selection-end-column="32" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -32,10 +35,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/HttpResponses/HttpDelete.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/Publication/Endpoints.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+            <state relative-caret-position="408">
+              <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -43,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/Publication/PublicationController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+            <state relative-caret-position="392">
+              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -59,10 +74,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/HttpResponses/HttpBuilder.py">
+        <entry file="file://$PROJECT_DIR$/resources/HttpResponses/HttpPost.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+            <state relative-caret-position="136">
+              <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -70,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/ApplicationEndpoints.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+            <state relative-caret-position="85">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -80,6 +98,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/Publication/publications.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -93,27 +120,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="1" column="48" lean-forward="true" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/Publication/publications.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/connection/Server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -143,7 +149,6 @@
       <list>
         <option value="$PROJECT_DIR$/resources/HttpExceptions/HttpException.py" />
         <option value="$PROJECT_DIR$/resources/HttpExceptions/NotFoundException.py" />
-        <option value="$PROJECT_DIR$/resources/HttpResponses/HttpDelete.py" />
         <option value="$PROJECT_DIR$/controllers/PublicationController.py" />
         <option value="$PROJECT_DIR$/connection/Gateway.py" />
         <option value="$PROJECT_DIR$/static/side_nav.css" />
@@ -151,18 +156,19 @@
         <option value="$PROJECT_DIR$/resources/HttpResponses/HttpPut.py" />
         <option value="$PROJECT_DIR$/controllers/Users/Endpoints.py" />
         <option value="$PROJECT_DIR$/connection/Server.py" />
-        <option value="$PROJECT_DIR$/utils/ApplicationEndpoints.py" />
         <option value="$PROJECT_DIR$/models/Publication.py" />
         <option value="$PROJECT_DIR$/resources/HttpResponses/HttpFactory.py" />
         <option value="$PROJECT_DIR$/resources/HttpResponses/HttpBuilder.py" />
         <option value="$PROJECT_DIR$/resources/HttpResponses/HttpPost.py" />
         <option value="$PROJECT_DIR$/utils/StaticFilesConstants.py" />
-        <option value="$PROJECT_DIR$/resources/HttpResponses/HttpGet.py" />
-        <option value="$PROJECT_DIR$/controllers/Publication/publications.json" />
-        <option value="$PROJECT_DIR$/controllers/Publication/Endpoints.py" />
-        <option value="$PROJECT_DIR$/controllers/Publication/PublicationController.py" />
         <option value="$PROJECT_DIR$/resources/HttpResponses/HttpResponse.py" />
         <option value="$PROJECT_DIR$/static/index.html" />
+        <option value="$PROJECT_DIR$/resources/HttpResponses/HttpGet.py" />
+        <option value="$PROJECT_DIR$/controllers/Publication/PublicationController.py" />
+        <option value="$PROJECT_DIR$/resources/HttpResponses/HttpDelete.py" />
+        <option value="$PROJECT_DIR$/utils/ApplicationEndpoints.py" />
+        <option value="$PROJECT_DIR$/controllers/Publication/Endpoints.py" />
+        <option value="$PROJECT_DIR$/controllers/Publication/publications.json" />
       </list>
     </option>
   </component>
@@ -305,12 +311,12 @@
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8186275" visible="true" weight="0.24962631" />
-      <window_info id="Structure" order="1" sideWeight="0.18137255" side_tool="true" visible="true" weight="0.24962631" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8207547" visible="true" weight="0.24962631" />
+      <window_info id="Structure" order="1" sideWeight="0.17924528" side_tool="true" visible="true" weight="0.24962631" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33224222" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30605564" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -355,13 +361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/HttpResponses/HttpDelete.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -442,51 +441,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/HttpResponses/HttpPost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/HttpResponses/HttpBuilder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/HttpResponses/HttpGet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="757">
-          <caret line="67" column="61" lean-forward="true" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/Publication/Endpoints.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/Publication/PublicationController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/Publication/publications.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -497,6 +455,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/Publication/PublicationController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/HttpResponses/HttpPost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/HttpResponses/HttpGet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" selection-start-line="11" selection-end-line="13" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/HttpResponses/HttpDelete.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/ApplicationEndpoints.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/Publication/Endpoints.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/StaticFilesConstants.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -504,20 +523,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/ApplicationEndpoints.py">
+    <entry file="file://$PROJECT_DIR$/controllers/Publication/publications.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+        <state relative-caret-position="238">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
         </state>
       </provider>
     </entry>

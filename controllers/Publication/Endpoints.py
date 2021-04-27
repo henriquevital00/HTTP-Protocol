@@ -16,5 +16,10 @@ publicationsEndpoints = {
         "/publications/all": lambda : (
             PublicationController().findAll()
         )
+    },
+    "DELETE": {
+        "/publications" : lambda id : (
+            PublicationController.deleteById(id)
+        )
     }
 }

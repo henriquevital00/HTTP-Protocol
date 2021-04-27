@@ -4,6 +4,8 @@ from controllers.Users.Endpoints import usersEndpoints
 endpoints = {
     "POST": publicationsEndpoints["POST"],
 
-    "GET": publicationsEndpoints["GET"]
+    "GET": publicationsEndpoints["GET"],
+
+    "DELETE": publicationsEndpoints["DELETE"]
 
 }

@@ -66,6 +66,8 @@ class HTTP_Get(Response):
                             self.content_type += "html"
                         elif fileExtension[-1] == "js":
                             self.content_type += "javascript"
+                        elif fileExtension[-1] == "map":
+                            self.content_type = "application/json"
                         else:
                             self.content_type += fileExtension[-1]
 
