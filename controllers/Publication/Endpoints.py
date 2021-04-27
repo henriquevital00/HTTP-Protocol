@@ -13,8 +13,8 @@ publicationsEndpoints = {
         "/publications": lambda id : (
             PublicationController().findById(id)
         ),
-        "/publications/all": lambda : {
+        "/publications/all": lambda : (
             PublicationController().findAll()
-        }
+        )
     }
 }

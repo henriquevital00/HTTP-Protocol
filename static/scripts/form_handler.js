@@ -9,6 +9,31 @@ const FormDatatoJson = formData => {
     return JSON.stringify(obj);
 }
 
+const fetchResponseStyles = response => {
+
+    response = response.reverse().map(resp => 
+        `<div class="publication-card mt-4">
+            <h1>${resp.hashtag}</h1>
+            <p>${resp.content}</p>
+            <p>${resp.date}</p>
+        </div>`
+    );
+    
+    $("#posts").html(response.join(''));
+}
+
+$(document).ready(function() {
+    fetch("http://localhost:8000/publications/all", {
+        headers: {
+          'Accept': 'application/json',
+          contentType: 'application/json',
+        },
+        method: "GET",
+    })
+    .then(response => response.json())
+    .then(response => fetchResponseStyles(response));
+});
+
 
 form.addEventListener("submit", e => {
     e.preventDefault();
@@ -26,6 +51,6 @@ form.addEventListener("submit", e => {
     })
     .then(
         response => response.json()
-        .then(response => console.log(response))
+            .then(response => fetchResponseStyles(response))
     )
 })

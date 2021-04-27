@@ -27,8 +27,11 @@ class PublicationController:
             print('Error searching in json file')
 
     def findAll(self):
-        with open(self.file_name, 'r') as json_file:
-            return str(json.load(json_file))[2:-2]
+        with open(self.file_name, 'r+') as file:
+            data = json.load(file)
+            file.seek(0)
+
+            return json.dumps(data)
 
 
     def removeData(self, Id: str) -> None:
