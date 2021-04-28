@@ -33,16 +33,6 @@ class PublicationController:
 
             return json.dumps(data)
 
-    def deleteById(self, id):
-        with open(self.file_name, "r+") as file:
-            data = json.load(file)
-            for idx, publication in enumerate(data):
-                if publication["id"] == id:
-                    data.pop(idx)
-                    file.seek(0)
-                    json.dump(data, file, indent=4)
-                    return json.dumps(data)
-
 
     def removeData(self, Id: str) -> None:
         try:
@@ -54,7 +44,3 @@ class PublicationController:
                 data = json.dump(data, data_file)
         except:
             print("Can not remove postagem")
-
-
-
-

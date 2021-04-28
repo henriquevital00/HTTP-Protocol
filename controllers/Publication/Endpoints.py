@@ -19,7 +19,7 @@ publicationsEndpoints = {
     },
     "DELETE": {
         "/publications" : lambda id : (
-            PublicationController.deleteById(id)
+            PublicationController().deleteById(id)
         )
     }
 }

@@ -3,7 +3,7 @@ const fetchPublications = async () => {
     let response = await fetch("http://localhost:8000/publications/all", {
         headers: {
         'Accept': 'application/json',
-        contentType: 'application/json',
+        'Content-Type': 'application/json',
         },
         method: "GET",
     });
@@ -17,11 +17,12 @@ const deletePublication = async (id) => {
     let response = await fetch(`http://localhost:8000/publications/${id}`,{
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'text/json'
         },
         method: "DELETE"
     });
-    
+
+
+
     response = await response.json();
     mountPublicationCard(response);
 }

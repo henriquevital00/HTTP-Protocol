@@ -1,12 +1,12 @@
 const form = document.getElementById("needs-validation");
 
-$(document).ready( async _ => await fetchPublications());
+$(document).ready( _ => fetchPublications());
 
-form.addEventListener("submit", async e => {
+form.addEventListener("submit", e => {
     e.preventDefault();
 
     formData = new FormData(e.target);
     result_data = FormDatatoJson(formData);
 
-    await sendPublication(result_data)
+    sendPublication(result_data)
 })
