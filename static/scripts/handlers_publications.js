@@ -2,15 +2,16 @@ const fetchPublications = async () => {
 
     let response = await fetch("http://localhost:8000/publications/all", {
         headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
         },
         method: "GET",
     });
 
     response = await response.json();
+
     mountPublicationCard(response);
-}
+};
 
 const deletePublication = async (id) => {
 
@@ -25,7 +26,7 @@ const deletePublication = async (id) => {
 
     response = await response.json();
     mountPublicationCard(response);
-}
+};
 
 const sendPublication = async (data) => {
 
@@ -39,8 +40,9 @@ const sendPublication = async (data) => {
     });
 
     response = await response.json();
+
     mountPublicationCard(response);
-}
+};
 
 const mountPublicationCard = response => {
 
@@ -54,6 +56,6 @@ const mountPublicationCard = response => {
         </div>`
     );
     
-    $("#posts").html(response.join(''));
-}
+    document.getElementById("posts").innerHTML = response.join('');
+};
 

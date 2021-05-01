@@ -3,16 +3,8 @@
 
   <head>
     <!-- Required meta tags -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css">
-
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" type="text/css">
 
     <link rel="stylesheet" href="styles/index.css" type="text/css">
 
@@ -24,132 +16,99 @@
 
     <div class="main" >
 
-      <div class="brand text-white">
-        <h5>HTTP Protocol</h5>
+      <div class="brand">
+        <h3>HTTP Protocol</h3>
         
-        <div class="navbar-toggler d-sm-none">
+        <div class="navbar-toggler">
          <i class="fa fa-bars"></i>
         </div>
 
       </div>
 
-      <div class="bg-dark text-white d-none d-sm-flex" id="side_navbar">
+      <div id="side_navbar">
 
-        <div class="list-group list-group-flush sidenav_items">
-          <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Home</a>
-          <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Postagens</a>
+        <div class="nav-items">
+          <a href="#" class="nav-item">Home</a>
+          <a href="#" class="nav-item">Postagens</a>
         </div>
 
       </div>
 
-      <div class="header d-flex align-items-center">
-          <h5 class="text-white">Posts</h5>
+      <div class="header">
+          <h4>Posts</h4>
       </div>
 
       <!-- Page Content -->
-      <div class="content container-fluid mt-2">
+      <div id="page-content">
 
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-primary" onclick="modalToggler()">
           + Nova publicação
         </button>
 
-        <div id="posts">
-          <div class="publication-card mt-4">
-            <h1>test</h1>
-            <p>sdfsdfdsfsdfsdf</p>
-            <p>01/01/2021</p>
-            <button class="btn btn-primary">Editar</button>
-            <button class="btn btn-danger">Deletar</button>
-        </div>
-        </div>
+        <div id="posts"></div>
 
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+        <div class="modal hidden" id="publications-modal">
+
+            <h5 class="modal-title">Cadastrar Publicação</h5>
+
             <div class="modal-content">
 
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nova publicação</h5>
-                
-              </div>
+                <div class="modal-body">
 
-              <div class="modal-body">
-                  <form id="needs-validation" novalidate>
+                  <form id="publication-form" novalidate>
 
                     <div class="form-row">
-        
-                      <div class="col-md-4 mb-3">
-                        <label for="username">Username</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                          </div>
+                          <label for="username">Username</label>
                           <input type="text" class="form-control" name="username" placeholder="Username" required>
-                          <div class="invalid-feedback">
-                            Por favor, escolha um nome de usuário
-                          </div>
-                        </div>
-
-                      </div>
-
-        
                     </div>
                     
                     <div class="form-row">
-        
-                      <div class="col-md-6 mb-3">
                         <label for="hashtag">Hashtag</label>
                         <input type="text" name="hashtag" class="form-control" id="hashtag" placeholder="Hashtag" required>
-                        <div class="invalid-feedback">
-                          Por favor, insira uma hashtag
-                        </div>
-                      </div>
-        
                     </div>
         
                     <div class="form-row">
-                      <div class="col-md-12 mb-3">
                         <label for="content">No que você está pensando?</label>
-                        <textarea class="form-control" name="content" rows="3"></textarea>
-                      </div>
+                        <textarea class="form-control" name="content" ></textarea>
                     </div>
         
                   </form>
 
-              </div>
+                </div>
 
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="submit" form="needs-validation" class="btn btn-primary">Publicar</button>
-              </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="modalToggler()">Cancelar</button>
+                  <button type="submit" form="publication-form" class="btn btn-primary">Publicar</button>
+                </div>
+
             </div>
-          </div>
+
+
         </div>
+
+        <div id="modal-bg" class="hidden" onclick="modalToggler()"></div>
 
       </div>
 
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
-    <script src="node_modules/popper.js/dist/popper.min.js" type="text/javascript"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="node_modules/tether/dist/js/tether.min.js" type="text/javascript"></script>
 
     <!-- Local scripts -->
-    <script src="scripts/utils.js" type="text/javascript"></script>
-    <script src="scripts/handlers_publications.js" type="text/javascript"></script>
-    <script src="scripts/form_handler.js" type="text/javascript"></script>
+    <script src="scripts/utils.js"  type="text/javascript" ></script>
+    <script src="scripts/handlers_publications.js"  type="text/javascript" ></script>
+    <script src="scripts/form_handler.js"  type="text/javascript" ></script>
 
     <script>
 
-      $(".navbar-toggler").click(() => {
-        $("#side_navbar").toggleClass("d-none");
-      })
+     const modalToggler = () => {
+         document.getElementById("publications-modal").classList.toggle("hidden");
+         document.getElementById("modal-bg").classList.toggle("hidden");
+     };
+
 
     </script>
   </body>

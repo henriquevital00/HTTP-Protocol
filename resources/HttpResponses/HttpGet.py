@@ -3,6 +3,7 @@ from resources.HttpResponses.HttpResponse import Response
 from resources.HttpExceptions.NotFoundException import NotFoundException
 from utils.StaticFilesConstants import *
 from utils.ApplicationEndpoints import endpoints
+from resources.HttpHeaders.ContentTypes import MIME_content_types as content_types
 
 class HTTP_Get(Response):
 
@@ -10,6 +11,7 @@ class HTTP_Get(Response):
         super().__init__(method, url)
         self.content_type = ''
         self.requestedDataType()
+
 
     def requestedDataType(self):
 
@@ -43,13 +45,14 @@ class HTTP_Get(Response):
             if self.url == "/":
                 self.url = "/index.html"
 
-            self.url = "static" + self.url
+            self.url = "static" + self.url #file path
 
             try:
 
                 requestedFileOpen = None
 
                 if  fileExtension[-1] not in page_script_extensions :
+
                     requestedFileOpen = open(self.url, "rb")
                 else:
                     requestedFileOpen = open(self.url, "r", encoding="utf-8")
@@ -59,30 +62,17 @@ class HTTP_Get(Response):
 
                     file_content = content.read()
 
+                    self.content_type = content_types[fileExtension[-1]]
+
                     if fileExtension[-1] in page_script_extensions:
-                        self.content_type = 'text/'
-
-                        if fileExtension[-1] == "/":
-                            self.content_type += "html"
-                        elif fileExtension[-1] == "js":
-                            self.content_type += "javascript"
-                        elif fileExtension[-1] == "map":
-                            self.content_type = "application/json"
-                        else:
-                            self.content_type += fileExtension[-1]
-
                         self.data = self.ResponseHandler(file_content,self.content_type)
                     else:
-                        self.content_type = 'image/'
-                        self.content_type += fileExtension[-1] if fileExtension[-1] != "ico" else "x-icon"
                         imgSize = os.stat(self.url).st_size
                         self.data = self.BinaryResponseHandler(file_content, imgSize)
 
             except FileNotFoundError as ex:
                 self.data = NotFoundException().ResponseHandler()
 
-            except Exception as ex:
-                print(ex)
 
 
     def BinaryResponseHandler(self, data, size):

@@ -5,7 +5,7 @@ const FormDatatoJson = formData => {
     obj["date"] = new Date(Date.now()).toISOString()
 
     return JSON.stringify(obj);
-}
+};
 
 const toDateString = date => {
 
@@ -17,4 +17,4 @@ const toDateString = date => {
     
     
     return date.join("/");
-}
+};

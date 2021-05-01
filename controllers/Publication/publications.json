@@ -12,19 +12,5 @@
         "hashtag": "test2",
         "date": "2020-12-31T23:28:56.782Z",
         "content": "Quis semper sapien metus eget eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In laoreet arcu odio, in tincidunt lectus porta egestas. Praesent vitae odio nec orci cong"
-    },
-    {
-        "username": "dfg",
-        "hashtag": "dfgd",
-        "content": "fgfdg",
-        "date": "2021-04-27T21:33:26.770Z",
-        "id": 6
-    },
-    {
-        "username": "dfg",
-        "hashtag": "dfgd",
-        "content": "fgfdg",
-        "date": "2021-04-27T21:33:22.722Z",
-        "id": 7
     }
 ]
