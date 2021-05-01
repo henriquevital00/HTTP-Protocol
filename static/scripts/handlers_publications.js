@@ -22,8 +22,6 @@ const deletePublication = async (id) => {
         method: "DELETE"
     });
 
-
-
     response = await response.json();
     mountPublicationCard(response);
 };
@@ -33,7 +31,7 @@ const sendPublication = async (data) => {
     let response = await fetch("http://localhost:8000/publications/create",{
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'text/json'
+          'Content-Type': 'application/json'
         },
         method: "POST",
         body: data
@@ -56,6 +54,6 @@ const mountPublicationCard = response => {
         </div>`
     );
     
-    document.getElementById("posts").innerHTML = response.join('');
+    $("#posts").html(response.join(''));
 };
 
