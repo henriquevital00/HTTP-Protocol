@@ -2,46 +2,35 @@ import os
 from resources.HttpResponses.HttpResponse import Response
 from resources.HttpExceptions.NotFoundException import NotFoundException
 from utils.StaticFilesConstants import *
-from utils.ApplicationEndpoints import endpoints
+from resources.HttpEndpoints.AppEndpoints import endpoints
+from resources.HttpEndpoints.EndpointFactory import Endpoint
 from resources.HttpHeaders.ContentTypes import MIME_content_types as content_types
+
 
 class HTTP_Get(Response):
 
     def __init__(self, method, url):
         super().__init__(method, url)
         self.content_type = ''
-        self.requestedDataType()
+        self.getResource()
 
 
-    def requestedDataType(self):
+    def getResource(self):
 
-        splitPath = self.url.split('/')
-        lastPathLink = splitPath[-1]
+        endpoint = Endpoint(self.url)
 
-        referencedFile = lastPathLink if self.url != '/' else '/'
-        fileExtension = referencedFile.split(".")
-
-        isStaticFileRequested = len(fileExtension) > 1 or fileExtension[-1] == "/"
-
-        if not isStaticFileRequested:
+        if not endpoint.isStaticFileRequested:
             self.content_type = "application/json"
 
-            isId = False
-            id = 0
-
-
             try:
-                id = int(lastPathLink)
-                isId = True
-            except Exception as ex: pass
+                id = int(endpoint.lastPathLink)
+                self.data = self.ResponseHandler(endpoints["GET"]["/".join(endpoint.splitPath[0:-1])](id), self.content_type)
 
-
-            if isId:
-                self.data = self.ResponseHandler(endpoints["GET"]["/".join(splitPath[0:-1])](id), self.content_type)
-            else:
+            except Exception:
                 self.data = self.ResponseHandler(endpoints["GET"][self.url](), self.content_type)
 
         else:
+
             if self.url == "/":
                 self.url = "/index.html"
 
@@ -51,8 +40,7 @@ class HTTP_Get(Response):
 
                 requestedFileOpen = None
 
-                if  fileExtension[-1] not in page_script_extensions :
-
+                if endpoint.fileExtension[-1] not in page_script_extensions :
                     requestedFileOpen = open(self.url, "rb")
                 else:
                     requestedFileOpen = open(self.url, "r", encoding="utf-8")
@@ -62,16 +50,16 @@ class HTTP_Get(Response):
 
                     file_content = content.read()
 
-                    self.content_type = content_types[fileExtension[-1]]
+                    self.content_type = content_types[endpoint.fileExtension[-1]]
 
-                    if fileExtension[-1] in page_script_extensions:
+                    if endpoint.fileExtension[-1] in page_script_extensions:
                         self.data = self.ResponseHandler(file_content,self.content_type)
                     else:
-                        imgSize = os.stat(self.url).st_size
-                        self.data = self.BinaryResponseHandler(file_content, imgSize)
+                        binaryFileSize = os.stat(self.url).st_size
+                        self.data = self.BinaryResponseHandler(file_content, binaryFileSize)
 
             except FileNotFoundError as ex:
-                self.data = NotFoundException().ResponseHandler()
+                self.data = NotFoundException(str(ex)).data
 
 
 

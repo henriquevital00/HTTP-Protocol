@@ -1,5 +1,5 @@
 from resources.HttpResponses.HttpResponse import Response
-from utils.ApplicationEndpoints import endpoints
+from resources.HttpEndpoints.AppEndpoints import endpoints
 
 class HTTP_Post(Response):
 

@@ -12,11 +12,14 @@ class Server:
 
             sock.bind((HOST, PORT))
             sock.listen(5)
+            packets = []
+
             print("Listening at {}:{}".format(HOST, PORT))
 
             while True:
 
                 conn, addr = sock.accept()
+
                 data = conn.recv(10000)
 
                 # Browser request
@@ -41,6 +44,5 @@ class Server:
                         print(result_data)  # just for output test, will be removed later
 
                         conn.sendall(result_data.encode())
-
                 except Exception as ex:
                     print(ex)

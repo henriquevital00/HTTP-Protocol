@@ -10,7 +10,7 @@ class PublicationController:
         with open(self.file_name, "r+") as file:
             data = json.load(file)
             sent_data = json.loads(sent_data)
-            sent_data["id"] = data[-1]["id"] + 1
+            sent_data["id"] = data[-1]["id"] + 1 if len(data) > 0 else 1
             data.append(sent_data)
             file.seek(0)
             json.dump(data, file, indent=4)
