@@ -58,8 +58,6 @@ class HTTP_Get(Response):
                         file = file.replace("\\", "/")
                         filename = file.split("/")[-1]
 
-                        print(file)
-
                         if filename == endpoint.lastPathLink:
                             extension = "".join(filename.split(".")[1:])
                             self.data = self.getFileContent(

@@ -115,8 +115,11 @@
 
                   </form>
 
+                  <a onclick="funcaoTeste()">test</a>
+
+
                   <form id="testForm" enctype="multipart/form-data">
-                    <input id="filetosend" type="file" name="thumb" accept="png, jpeg, gif">
+                    <input id="fileToSend" type="file" name="thumb" accept="png, jpeg, gif">
                     <button type="submit">Enviar</button>
                   </form>
 
@@ -147,38 +150,12 @@
     <script src="scripts/handlers_publications.js"  type="text/javascript" ></script>
     <script src="scripts/form_handler.js"  type="text/javascript" ></script>
 
-    
     <script>
       $(".navbar-toggler").click(() => {
-        $("#side_navbar").toggleClass("d-none");
-      })
-
-
-
-      $("#testForm").submit(e => {
-
-        e.preventDefault(); 
-
-        const file = document.getElementById("filetosend").files[0];
-        
-        const reader = new FileReader();
-        reader.onload = function() {
-
-          const arrayBuffer = this.result,
-            array = new Uint8Array(arrayBuffer),
-            binaryString = String.fromCharCode.apply(null, array);
-
-          console.log(binaryString);
-
-        }
-        reader.readAsArrayBuffer(this.files[0]);
-        
-
-
-
-
+          $("#side_navbar").toggleClass("d-none");
       });
     </script>
+  
   </body>
 
 </html>
