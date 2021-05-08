@@ -1,17 +1,21 @@
 from resources.HttpResponses.HttpResponse import Response
+from utils.functions import HttpDateTime
 
 class HTTP_Exception(Response):
-    def __init__(self, status, phrase):
+
+    def __init__(self, status, phrase, message):
         self.status = status
         self.phrase = phrase
+        self.message = message
+        self.data = self.ResponseHandler()
+
 
     def ResponseHandler(self):
-        return ("HTTP/1.1 {0} {1}\r\n"
-                "Content-Type: text/html; charset=utf-8\r\n"
+
+        return ("HTTP/1.1 {} {}\r\n"
+                "Content-Type: application/json\r\n"
+                "Date: {}\r\n"
+                "Content-Length: {}\r\n"
                 "\r\n"
-                "<html>"
-                "<body>"
-                "<h1>ERROR {2}</h1>"
-                "</body>"
-                "</html>"
-                "\r\n\r\n".format(self.status, self.phrase, self.status))
+                "{}"
+                "\r\n\r\n".format(self.status, self.phrase, HttpDateTime(), len(self.message.encode("utf-8")), self.message))

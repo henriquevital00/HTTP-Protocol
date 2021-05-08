@@ -1,6 +1,7 @@
 from resources.HttpResponses.HttpDelete import HTTP_Delete
 from resources.HttpResponses.HttpGet import HTTP_Get
 from resources.HttpResponses.HttpPost import HTTP_Post
+from resources.HttpResponses.HttpPut import HTTP_Put
 
 class ResponseFactory:
 
@@ -15,3 +16,5 @@ class ResponseFactory:
             return HTTP_Get(method, url)
         elif method == "DELETE":
             return HTTP_Delete(method, url)
+        else:
+            return HTTP_Put(method, url)

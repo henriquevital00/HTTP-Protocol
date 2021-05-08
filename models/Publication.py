@@ -4,7 +4,7 @@ class Publication:
     def __init__(self):
         pass
 
-    def __init__(self, id, date, text):
+    def __init__(self, id, username, content, hashtag):
         self.id = id
-        self.date = date
-        self.text = text
+        self.username = username
+        self.hashtag = hashtag
