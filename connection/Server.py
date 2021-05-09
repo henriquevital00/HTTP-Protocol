@@ -2,6 +2,7 @@ from socket import *
 from .Gateway import HOST, PORT
 from resources.HttpResponses.HttpBuilder import HttpBuilder
 from utils.functions import isBinaryData
+import os
 
 
 class Server:
@@ -15,34 +16,43 @@ class Server:
 
             while True:
                 conn, addr = sock.accept()
-                data = self.recv_all(conn)
+                pid = os.fork()
+                if pid == 0:
+                    data = self.recv_all(conn)
 
-                try:
+                    try:
 
-                    builder = HttpBuilder(data.decode())
-                    result_data = builder.result().data
+                        builder = HttpBuilder(data.decode())
+                        result_data = builder.result().data
 
-                    print('\nRequest Result')  # just for output test, will be removed later
-                    print(data.decode())
+                        print('\nRequest Result'
+                              )  # just for output test, will be removed later
+                        print(data.decode())
 
-                    print('\nResponse Result')  # just for output test, will be removed later
+                        print('\nResponse Result'
+                              )  # just for output test, will be removed later
 
-                    if isBinaryData(result_data):
+                        if isBinaryData(result_data):
 
-                        headers, binaryContent = (result_data[0], result_data[1])
+                            headers, binaryContent = (result_data[0],
+                                                      result_data[1])
 
-                        print(headers + str(binaryContent))  # just for output test, will be removed later
+                            print(
+                                headers + str(binaryContent)
+                            )  # just for output test, will be removed later
 
-                        conn.send(headers.encode())
-                        conn.send(binaryContent)
+                            conn.send(headers.encode())
+                            conn.send(binaryContent)
+                            conn.close()
+                        else:
+                            print(
+                                result_data
+                            )  # just for output test, will be removed later
+                            conn.sendall(result_data.encode())
+                            conn.close()
+
+                    except Exception:
                         conn.close()
-                    else:
-                        print(result_data)  # just for output test, will be removed later
-                        conn.sendall(result_data.encode())
-                        conn.close()
-
-                except Exception:
-                    conn.close()
 
     def recv_all(self, conn):
         k: int = 1
@@ -60,7 +70,8 @@ class Server:
 
             for index in range(len(str_chunk)):
 
-                end_msg_counter = end_msg_counter + 1 if str_chunk[index] == '\r' or str_chunk[index] == '\n' else 0
+                end_msg_counter = end_msg_counter + 1 if str_chunk[
+                    index] == '\r' or str_chunk[index] == '\n' else 0
 
                 if end_msg_counter == 4 or len(chunk) < buffer:
                     diff = len(chunk) - index
@@ -78,7 +89,6 @@ class Server:
 
         return header + body
 
-
     def get_content_length(self, header):
         header = str(header)
         h = header.split(':')
@@ -87,10 +97,10 @@ class Server:
 
             if 'content-length' in h[i].lower():
                 temp = ''
-                for byte in range(len(h[i+1])):
+                for byte in range(len(h[i + 1])):
 
-                    if h[i+1][byte].isnumeric():
-                        temp += h[i+1][byte]
+                    if h[i + 1][byte].isnumeric():
+                        temp += h[i + 1][byte]
 
                 cl = int(temp)
 
