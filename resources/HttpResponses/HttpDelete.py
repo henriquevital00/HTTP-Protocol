@@ -1,8 +1,8 @@
-import os, glob, json
+import os, json
 from resources.HttpEndpoints.EndpointFactory import Endpoint
 from resources.HttpResponses.HttpResponse import Response
 from resources.HttpEndpoints.AppEndpoints import endpoints
-from resources.HttpExceptions.NotFoundException import NotFoundException
+from resources.HttpExceptions.ExceptionsStatusCode import NotFoundException
 
 
 class HTTP_Delete(Response):

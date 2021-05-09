@@ -17,4 +17,4 @@ class ResponseFactory:
         elif method == "DELETE":
             return HTTP_Delete(method, url)
         else:
-            return HTTP_Put(method, url)
+            return HTTP_Put(method, url, data)

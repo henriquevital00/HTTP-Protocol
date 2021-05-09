@@ -9,17 +9,23 @@ class Response(ABC):
         self.status = None
         self.data = None
 
-    def ResponseHandler(self, data, content_type, isFileMoved = False, newFilePath = None):
+    def ResponseHandler(self, data, content_type, isFileMoved = False, newFilePath = None, isFileCreated = False):
 
         header = "HTTP/1.1 200 OK\r\n"
+
+        if isFileCreated:
+            header = "HTTP/1.1 201 Created\r\n"
 
         if isFileMoved:
             header = "HTTP/1.1 302 Found\r\n"
             header += "Location: /{}\r\n".format(newFilePath)
 
-        header += "Content-Type: {}\r\n".format(content_type)
+        if not isFileCreated and not isFileMoved:
+            header += "Content-Type: {}\r\n".format(content_type)
+            header += "Content-Length: {}\r\n".format(len(data.encode("utf-8")))
+
+
         header += "Date: {}\r\n".format(HttpDateTime())
-        header += "Content-Length: {}\r\n".format(len(data.encode("utf-8")))
         header += "Connection: close\r\n\r\n"
         header += data if not isFileMoved else ""
         header += "\r\n\r\n"
@@ -40,5 +46,3 @@ class Response(ABC):
         http_binary_file_headers += "Accept-Ranges: bytes\r\n\r\n"
 
         return [http_binary_file_headers, data]
-
-

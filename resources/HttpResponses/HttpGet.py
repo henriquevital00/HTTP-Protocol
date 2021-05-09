@@ -1,12 +1,11 @@
 import os
 from glob import iglob
 from resources.HttpResponses.HttpResponse import Response
-from resources.HttpExceptions.NotFoundException import NotFoundException
+from resources.HttpExceptions.ExceptionsStatusCode import NotFoundException
 from utils.StaticFilesConstants import *
 from resources.HttpEndpoints.AppEndpoints import endpoints
 from resources.HttpEndpoints.EndpointFactory import Endpoint
 from resources.HttpHeaders.ContentTypes import MIME_content_types as content_types
-from pdb import set_trace
 
 
 class HTTP_Get(Response):
@@ -27,9 +26,10 @@ class HTTP_Get(Response):
                 self.data = self.ResponseHandler(
                     endpoints["GET"]["/".join(endpoint.splitPath[0:-1])](id),
                     self.content_type)
+
             except Exception:
-                self.data = self.ResponseHandler(endpoints["GET"][self.url](),
-                                                 self.content_type)
+                self.data = self.ResponseHandler(endpoints["GET"][self.url](), self.content_type)
+
         else:
 
             if self.url == "/":
@@ -72,11 +72,7 @@ class HTTP_Get(Response):
             except FileNotFoundError as ex:
                 self.data = NotFoundException(str(ex)).data
 
-    def getFileContent(self,
-                       url,
-                       fileExtension,
-                       isFileMoved=False,
-                       newFilePath=None):
+    def getFileContent(self, url, fileExtension, isFileMoved=False, newFilePath=None):
 
         requestedFileOpen = None
 
@@ -104,11 +100,7 @@ class HTTP_Get(Response):
             else:
                 binaryFileSize = len(file_content)
                 if not isFileMoved:
-                    return self.BinaryResponseHandler(file_content,
-                                                      binaryFileSize,
-                                                      self.content_type)
+                    return self.BinaryResponseHandler(file_content, binaryFileSize,self.content_type)
                 else:
-                    return self.BinaryResponseHandler(file_content,
-                                                      binaryFileSize,
-                                                      self.content_type,
+                    return self.BinaryResponseHandler(file_content, binaryFileSize, self.content_type,
                                                       isFileMoved, newFilePath)

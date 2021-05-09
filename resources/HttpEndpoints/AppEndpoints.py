@@ -1,5 +1,4 @@
 from controllers.Publication.Endpoints import publicationsEndpoints
-from controllers.Users.Endpoints import usersEndpoints
 
 endpoints = {
     "POST": publicationsEndpoints["POST"],

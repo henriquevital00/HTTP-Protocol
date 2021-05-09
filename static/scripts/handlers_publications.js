@@ -49,7 +49,6 @@ const mountPublicationCard = response => {
             <h1>${resp.hashtag}</h1>
             <p>${resp.content}</p>
             <p>${toDateString(resp.date)}</p>
-            <button class="btn btn-primary">Editar</button>
             <button class="btn btn-danger" onClick={deletePublication(${resp.id})}>Deletar</button>
         </div>`
     );

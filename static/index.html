@@ -36,8 +36,7 @@
       <div class="bg-dark text-white d-none d-sm-flex" id="side_navbar">
 
         <div class="list-group list-group-flush sidenav_items">
-          <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Home</a>
-          <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Postagens</a>
+          <a href="#" class="list-group-item list-group-item-action bg-dark text-white active">Home</a>
         </div>
 
       </div>
@@ -49,10 +48,17 @@
       <!-- Page Content -->
       <div class="content container-fluid mt-2">
 
+        <div class="d-flex">
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#publications-modal">
-          + Nova publicação
-        </button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#publications-modal">
+            + Nova publicação
+          </button>
+
+          <button type="button" class="btn btn-warning ml-2" data-toggle="modal" data-target="#file-modal">
+            + Novo arquivo
+          </button>
+
+        </div>
 
         <div id="posts">
             <div class="publication-card mt-4">
@@ -63,7 +69,7 @@
         </div>
 
 
-        <!-- Modal -->
+        <!-- Publications Modal -->
         <div class="modal fade" id="publications-modal" tabindex="-1" aria-labelledby="publications-modalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -115,14 +121,6 @@
 
                   </form>
 
-                  <a onclick="funcaoTeste()">test</a>
-
-
-                  <form id="testForm" enctype="multipart/form-data">
-                    <input id="fileToSend" type="file" name="thumb" accept="png, jpeg, gif">
-                    <button type="submit">Enviar</button>
-                  </form>
-
               </div>
 
               <div class="modal-footer">
@@ -132,6 +130,44 @@
             </div>
           </div>
         </div>
+
+        <!-- End Publications Modal-->
+
+        <!-- Files Modal -->
+        <div class="modal fade" id="file-modal" tabindex="-1" aria-labelledby="file-modalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <h5 class="modal-title" id="file-modalLabel">Novo arquivo</h5>
+
+              </div>
+
+              <div class="modal-body">
+
+                  <form id="file-form" novalidate>
+                    
+                    <div id="file_sent_warning"></div>
+
+                    <div class="form-row">
+                      <div class="col-md-12">
+                          <input type="file" class="custom-file-input" id="customFile" name="file">
+                          <label class="custom-file-label" for="customFile">Escolha um arquivo</label>
+                      </div>
+                    </div>
+
+                  </form>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary" form="file-form">Publicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- End Publications Modal-->
 
       </div>
 
@@ -153,6 +189,11 @@
     <script>
       $(".navbar-toggler").click(() => {
           $("#side_navbar").toggleClass("d-none");
+      });
+
+      $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
       });
     </script>
   

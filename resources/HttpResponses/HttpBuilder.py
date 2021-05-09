@@ -10,4 +10,3 @@ class HttpBuilder:
     def result(self):
         return ResponseFactory.InstanceResponse(self.method, self.url,
                                                 self.received_data)
-
