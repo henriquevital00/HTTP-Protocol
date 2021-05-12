@@ -1,5 +1,5 @@
 # HTTP Protocol
-The main ideia of the project is implement an HTTP Server in Python, including GET, POST, PUT and DELETE methods.
+The main ideia of the project is implement a HTTP Server in Python, including GET, POST, PUT and DELETE methods.
 
 # Web Application
 We've developed a web app to help the execution of each method simulation.
