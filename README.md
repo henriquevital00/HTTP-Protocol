@@ -12,7 +12,7 @@ For example, you can create files (PUT method) through a HTML file input in the 
 
 
 # POST
-You can also send POST request throgh the web page, sending a text form.
+You can also send POST requests through the web page, sending a text form.
 ![image](https://user-images.githubusercontent.com/56837996/117586315-da3b7700-b0ed-11eb-8162-d0c4460c980c.png)
 
 
