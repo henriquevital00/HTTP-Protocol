@@ -18,7 +18,7 @@ You can also send POST requests through the web page, sending a text form.
 
 # GET and DELETE
 
-- To send GET requests, you can use the browser, typing its endpoint in the search bar (example: http://localhost:8000/[filePath]) and it will be rendered.
+- To send GET requests, you can use the browser, typing its endpoint in the search bar (example:http://localhost:8000/[filePath]) and it will be rendered.
 - You can use API testing tools like Postman and Isomnia or use the terminal to send GET/DELETE requistions 
 
 # Execution
